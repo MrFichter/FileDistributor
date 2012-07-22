@@ -1,9 +1,8 @@
 ##File Distributor
 ##By Jonathan Fichter
 ##
-##This program copies a file of
-##any type and distributes it
-##to users' network folders.
+##This program copies a file of any type
+##and distributes it to branch folders.
 
 
 ##MENU / QUESTIONS
