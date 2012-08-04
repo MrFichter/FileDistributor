@@ -153,9 +153,9 @@ for line in open (branchFolderNames):
     if modifyOption == 'y': ## i.e. If the user selected
     ##the option to modify the file name for each branch
     ##folder...
+        optionalNameMod = '/' + sourceFileName + line.strip()
         print 'modifyOption = ' + modifyOption ### for testing purposes
         print 'optionalNameMod = ' + optionalNameMod  ### for testing purposes
-        optionalNameMod = '/' + sourceFileName + line.strip()
     else: optionalNameMod = ''
 
     ##In each iteration, the base path remains the same,
