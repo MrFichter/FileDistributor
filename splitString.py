@@ -1,23 +1,17 @@
-def splitString (OrigString, splitPoint):
-	'''Splits OrigString into charsBeforeSplitPoint and charsAfterSplitPoint. splitPoint is a character somewhere within OrigString. Example: splitPoint might be a period separating the file name from the file type.'''
+def splitString (origString, splitPoint):
+    '''Splits origString into beforeSplit and afterSplit. The splitPoint is a character somewhere within origString. Example: splitPoint might be a period separating the file name from the file type.'''
 
-	#initialize variables
-	charsBeforeSplitPoint = ''
-	charsAfterSplitPoint = ''
-	haveEncounteredSplitPoint = False
+    #Find location of splitPoint.
+    i = 0
+    for character in origString:
+        if character == '.':
+            splitLocation = i
+        else: i += 1
 
-	for character in OrigString: ##Loops through each character in the string
-		if character == 'splitPoint':
-			haveEncounteredSplitPoint = True #This helps us keep track of whether we're working with characters before or after the splitPoint.
+    #Assign characters before splitPoint to string called beforeSplit.
+    beforeSplit = origString [0 : splitLocation]
 
-		if character != 'splittingPoint': #Every character except for splittingPoint gets assigned to a new string.
-
-			##If a character comes after the splitting point, it will become part of the string called charsAfterSplit.
-			if haveEncounteredSplitPoint:
-				charsAfterSplitPoint += character
-
-			##If a character comes before the splitting point, it will become part of the string called charsAfterSplit.
-			elif not haveEncounteredSplitPoint:
-				charsBeforeSplitPoint += character
-
-	return (charsBeforeSplitPoint, charsAfterSplitPoint)
+    #Assign characters after splitPoint to string called afterSplit.
+    afterSplit = origString [ (splitLocation + 1) : ] # I added +1 to splitLocation because I do not want to include the splitLocation character.
+               
+    return (beforeSplit, afterSplit)
