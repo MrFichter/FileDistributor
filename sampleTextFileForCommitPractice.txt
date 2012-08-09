@@ -1,0 +1,1 @@
+sample text file for practicing git commits from the command line
