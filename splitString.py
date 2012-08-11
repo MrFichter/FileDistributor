@@ -13,4 +13,4 @@ origString, the program treats the first as the splitPoint.'''
             beforeSplit = origString [0 : splitLocation]
             #Assign characters after splitPoint to string called afterSplit.
             afterSplit = origString [ (splitLocation + 1) : ] # I added +1 to splitLocation because I do not want to include the splitLocation character.
-            return (beforeSplit, afterSplit)
+            return beforeSplit, afterSplit
