@@ -9,6 +9,7 @@
 
 
 import shutil, os
+from splitString import splitString
 
 
 def askYesNo(question):
@@ -153,7 +154,8 @@ for line in open (branchFolderNames):
     if modifyOption == 'y': ## i.e. If the user selected
     ##the option to modify the file name for each branch
     ##folder...
-        optionalNameMod = '/' + sourceFileName + line.strip()
+        sourceFileNamePart1, sourceFileNamePart2 = splitString (sourceFileName, '.') #Here, the splitString function I created makes the file type (like ".doc") Part2. Everything else in sourceFileName becomes Part1.
+        optionalNameMod = '/' + sourceFileNamePart1 + line.strip() + '.' + sourceFileNamePart2
         print 'modifyOption = ' + modifyOption ### for testing purposes
         print 'optionalNameMod = ' + optionalNameMod  ### for testing purposes
     else: optionalNameMod = ''
