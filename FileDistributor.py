@@ -24,46 +24,53 @@ def askYesNo(question):
 sourceFileName = 'FractionsProject.sb'
 sourceFilePath = 'C:/Users/Jonathan_2/Desktop/'
 
-####print overview
-##
-##print '''
-##Welcome to this file-distributing program.
-##With a little information from you, this
-##program will be able to distribute copies
-##of a desired file to folders you specify.
-##'''
-##
-####Ask for sourceFileName
-##print '''
-##To get started, please provide the name
-##of the file you wish to copy. Example:
-##
-##FractionsProject.doc
-##
-##(NB: This program can only read files
-##whose names have no spaces in them.
-##Letters and numbers in the file name
-##are fine, but special characters
-##like symbols and apostrophes may
-##cause problems. Before proceeding,
-##please consider renaming your file.)
-##'''
-##sourceFileName = str(raw_input('source file name>'))
-##
-##### Consider teaching program to automatically correct backslashes the user might input.
-##
-##
-#### Ask for path of sourceFile
-##print '''
-##Now, please specify the path of this
-##file (i.e. where it is located on the
-##computer). Please be sure to use forward
-##slashes, especially at the end of the
-##path name. Example:
-##
-##C:/Users/Jonathan_2/Desktop/
-##'''
-##sourceFilePath = str(raw_input('source file path>'))
+##print overview
+
+print '''
+Welcome to this file-distributing program.
+With a little information from you, this
+program will be able to distribute copies
+of a desired file to folders you specify.
+'''
+
+##Ask for sourceFileName
+print '''
+To get started, please provide the name
+of the file you wish to copy. Example:
+
+FractionsProject.doc
+
+(NB: This program can only read files
+whose names have no spaces in them.
+Letters and numbers in the file name
+are fine, but special characters
+like symbols and apostrophes may
+cause problems. Before proceeding,
+please consider renaming your file.)
+'''
+sourceFileName = str(raw_input('source file name>'))
+
+
+##Ask for path of sourceFile
+print '''
+Now, please specify the path of this
+file (i.e. where it is located on the
+computer). Example:
+
+C:/Users/Jonathan_2/Desktop
+'''
+sourceFilePathInput = str(raw_input('source file path>'))
+
+###These three lines work when I run them individually,
+###but something bad happens when I try to run them
+###together. After I run them, I ask IDLE to tell me
+###what sourceFilePath is and it responds by giving me
+###the value for what sourceFilePath was the PREVIOUS
+###time I ran the test.
+sourceFilePathConvSlash = sourceFilePathInput.replace('\\' , '/') ##Convert backslashes to forward slashes.
+if sourceFilePathConvSlash [len(sourceFilePathConvSlash) - 1] != '/': ## If the final character is not a forward slash...
+    sourceFilePath = sourceFilePathConvSlash + '/' ##...make sure to add a forward slash at the end.
+
 
 
 ##Option: Modify file name for each branch folder
