@@ -10,7 +10,7 @@
 
 import shutil, os
 from splitString import splitString
-
+from slashFormat import slashFormat
 
 def askYesNo(question):
     """Ask a yes or no question."""
@@ -21,13 +21,6 @@ def askYesNo(question):
     return response
 
 
-def slashFormat (sourceFilePathInput):
-    '''Converts a string's backslashes to forward \
-slashes and makes sure to add a forward slash at the end.'''
-    sourceFilePathConvSlash = sourceFilePathInput.replace('\\' , '/') ##Convert backslashes to forward slashes.
-    if sourceFilePathConvSlash [len(sourceFilePathConvSlash) - 1] != '/': ## If the final character is not a forward slash...
-        sourceFilePath = sourceFilePathConvSlash + '/' ##...make sure to add a forward slash at the end.
-        return sourceFilePath
 
 
 ### for testing purposes, I am auto-filling responses and commenting out some sections.
@@ -96,34 +89,31 @@ modifyOption = askYesNo('Would you like to modify the names of the copied files 
 baseDestFolder = 'C:/Users/Jonathan_2/Desktop/'
 branchFolderNames = 'C:/Users/Jonathan_2/Desktop/sampleTextFileWithThreeNames.txt'
 
-####Ask for base destination folder
-##print '''
-##Thank you.
-##
-##* * * * *
-##
-##When it comes to distributing files,
-##this program assumes you have a base
-##destination folder from which individual
-## folders branch out. For example,
-##if you have branch folders like:
-##S:/Students/2021/FichterJ ,
-##S:/Students/2021/MouseM , and
-##S:/Students/2021/SmithT ,
-##
-##your base folder would be:
-##
-##S:/Students/2021/
-##
-##To proceed, please provide the path of
-##a base destination folder, making sure
-##to use forward slashes as indicated
-##above (especially at the end of the
-##folder's name).
-##'''
-##baseDestFolder = str(raw_input('base destination folder>'))
-##
-##
+##Ask for base destination folder
+print '''
+Thank you.
+
+* * * * *
+
+When it comes to distributing files,
+this program assumes you have a base
+destination folder from which individual
+folders branch out. For example,
+if you have branch folders like:
+S:/Students/2021/FichterJ ,
+S:/Students/2021/MouseM , and
+S:/Students/2021/SmithT ,
+
+your base folder would be:
+
+S:/Students/2021
+
+To proceed, please provide the path of
+a base destination folder.
+'''
+baseDestFolderInput = str(raw_input('base destination folder>'))
+baseDestFolder = slashFormat (baseDestFolderInput)
+
 ####Ask for text file with list of branch folder names.
 ##print '''
 ##Now, please create a text file (you can
