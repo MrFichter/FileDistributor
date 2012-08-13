@@ -20,6 +20,16 @@ def askYesNo(question):
         response = raw_input(question).lower()
     return response
 
+
+def slashFormat (sourceFilePathInput):
+    '''Converts a string's backslashes to forward \
+slashes and makes sure to add a forward slash at the end.'''
+    sourceFilePathConvSlash = sourceFilePathInput.replace('\\' , '/') ##Convert backslashes to forward slashes.
+    if sourceFilePathConvSlash [len(sourceFilePathConvSlash) - 1] != '/': ## If the final character is not a forward slash...
+        sourceFilePath = sourceFilePathConvSlash + '/' ##...make sure to add a forward slash at the end.
+        return sourceFilePath
+
+
 ### for testing purposes, I am auto-filling responses and commenting out some sections.
 sourceFileName = 'FractionsProject.sb'
 sourceFilePath = 'C:/Users/Jonathan_2/Desktop/'
@@ -60,17 +70,7 @@ computer). Example:
 C:/Users/Jonathan_2/Desktop
 '''
 sourceFilePathInput = str(raw_input('source file path>'))
-
-###These three lines work when I run them individually,
-###but something bad happens when I try to run them
-###together. After I run them, I ask IDLE to tell me
-###what sourceFilePath is and it responds by giving me
-###the value for what sourceFilePath was the PREVIOUS
-###time I ran the test.
-sourceFilePathConvSlash = sourceFilePathInput.replace('\\' , '/') ##Convert backslashes to forward slashes.
-if sourceFilePathConvSlash [len(sourceFilePathConvSlash) - 1] != '/': ## If the final character is not a forward slash...
-    sourceFilePath = sourceFilePathConvSlash + '/' ##...make sure to add a forward slash at the end.
-
+sourceFilePath = slashFormat(sourceFilePathInput)
 
 
 ##Option: Modify file name for each branch folder
