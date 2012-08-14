@@ -21,12 +21,6 @@ def askYesNo(question):
     return response
 
 
-
-
-### for testing purposes, I am auto-filling responses and commenting out some sections.
-sourceFileName = 'FractionsProject.sb'
-sourceFilePath = 'C:/Users/Jonathan_2/Desktop/'
-
 ##print overview
 
 print '''
@@ -85,9 +79,6 @@ name gets modified each time?)
 '''
 modifyOption = askYesNo('Would you like to modify the names of the copied files as described above? y / n>')
 
-### for testing purposes, I am auto-filling responses and commenting out some sections.
-baseDestFolder = 'C:/Users/Jonathan_2/Desktop/'
-branchFolderNames = 'C:/Users/Jonathan_2/Desktop/sampleTextFileWithThreeNames.txt'
 
 ##Ask for base destination folder
 print '''
@@ -114,33 +105,34 @@ a base destination folder.
 baseDestFolderInput = str(raw_input('base destination folder>'))
 baseDestFolder = slashFormat (baseDestFolderInput)
 
-####Ask for text file with list of branch folder names.
-##print '''
-##Now, please create a text file (you can
-##do this with the Notepad program on your
-##computer) in which each line provides
-##the name of a folder in which you would
-##like a copy of the source file to appear.
-##(Please keep in mind: this program
-##assumes that each of these folders is a
-##branch stemming from the destination base
-##folder you just specified.)
-##
-##The text file you create might look like
-##this:
-##
-##FichterJ
-##MouseM
-##SmithT
-##'''
-##print '''
-##Now, please enter the file path and name
-##of the text file you created. Example:
-##
-##C:/Users/Jonathan_2/Desktop/branchFolderNames.txt
-##'''
-##branchFolderNames = str(raw_input('text file path and name>'))
-##'''
+##Ask for text file with list of branch folder names.
+print '''
+Now, please create a text file (you can
+do this with the Notepad program on your
+computer) in which each line provides
+the name of a folder in which you would
+like a copy of the source file to appear.
+(Please keep in mind: this program
+assumes that each of these folders is a
+branch stemming from the destination base
+folder you just specified.)
+
+The text file you create might look like
+this:
+
+FichterJ
+MouseM
+SmithT
+'''
+print '''
+Now, please enter the file path and name
+of the text file you created. Example:
+
+C:/Users/Jonathan_2/Desktop/branchFolderNames.txt
+'''
+branchFolderNames = str(raw_input('text file path and name>'))
+
+
 
 ##COPYING THE FILE AND DISTRIBUTING IT TO DESTINATION FOLDERS
 
@@ -153,8 +145,6 @@ for line in open (branchFolderNames):
     ##folder...
         sourceFileNamePart1, sourceFileNamePart2 = splitString (sourceFileName, '.') #Here, the splitString function I created makes the file type (like ".doc") Part2. Everything else in sourceFileName becomes Part1.
         optionalNameMod = '/' + sourceFileNamePart1 + line.strip() + '.' + sourceFileNamePart2
-        print 'modifyOption = ' + modifyOption ### for testing purposes
-        print 'optionalNameMod = ' + optionalNameMod  ### for testing purposes
     else: optionalNameMod = ''
 
     ##In each iteration, the base path remains the same,
@@ -165,6 +155,7 @@ for line in open (branchFolderNames):
     destFileComplete = baseDestFolder + line.strip() + optionalNameMod
     try: ##Try and except give us a controlled way of seeing error messages.
         shutil.copy (sourceFileComplete, destFileComplete) ##shutil enables us to copy a file.
+        print 'File created: ' , destFileComplete
     except Exception, e:
         print e
     
@@ -179,26 +170,4 @@ Thank you for using this program.
 '''
 raw_input ('Press Enter key to quit.')
 
-
-###FOR TESTING PURPOSES
-
-##FractionsProject.sb
-##C:/Users/Jonathan_2/Desktop/
-##C:/Users/Jonathan_2/Desktop/
-##C:/Users/Jonathan_2/Desktop/sampleTextFileWithThreeNames.txt
-
-
-
-
-
-
-##os.chdir ('C:/Users\Jonathan_2/Desktop/') ##This works, even though the slashes in the middle are weird.
-##fileNameFull = 'FractionsProjectFichterJ.sb'
-
-
-##To check the path:
-##import os
-##os.getcwd()
-
-##Also try os.chdir()
     
