@@ -70,9 +70,9 @@ each copy reflects the folder in which it
 resides. For example, you could modify the
 file name each time to create the following:
 
-S:/Students/2021/FichterJ/FichterJFractionsProject
-S:/Students/2021/MouseM/MouseMFractionsProject
-S:/Students/2021/SmithT/SmithTFractionsProject
+S:/Students/2021/FichterJ/FractionsProjectFichterJ.doc
+S:/Students/2021/MouseM/FractionsProjectMouseM.doc
+S:/Students/2021/SmithT/FractionsProjectSmithT.doc
 
 (See how the original "FractionsProject" file
 name gets modified each time?)
@@ -131,6 +131,7 @@ of the text file you created. Example:
 C:/Users/Jonathan_2/Desktop/branchFolderNames.txt
 '''
 branchFolderNames = str(raw_input('text file path and name>'))
+
 
 
 
