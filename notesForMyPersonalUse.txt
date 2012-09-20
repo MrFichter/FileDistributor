@@ -1,0 +1,11 @@
+9-19-12
+
+To get os.chdir() to access a network drive, I might have to manually map the drive.
+Even if the drive is mapped, I might need to open it by clicking "Computer" or by typing its UNC path first.
+
+I saved a version of the program will all of the user input pre-typed: see Google Drive "All About Me."
+
+The pre-typed program refers to s:/2023 because it would only let me map s:/students.
+
+For some reason, probably because I highlighted and copied quickly, the text file with usernames
+contained some older students. I think I deleted all of them.
